@@ -1,0 +1,2 @@
+rootProject.name='Viikko11'
+include ':app'
