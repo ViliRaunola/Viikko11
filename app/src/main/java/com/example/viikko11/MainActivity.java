@@ -9,8 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+
+//https://www.youtube.com/watch?v=BVab9vDrra4
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -33,9 +38,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(togglaus);
         togglaus.syncState();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Text()).commit(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
+
+        Text fragment = new Text(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
+        Fragment_Transaction(fragment, fragment.getTag(), false, "");
         navigationView.setCheckedItem(R.id.nav_text);
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -45,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_text:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Text()).commit();
-
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -58,6 +67,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else{
             super.onBackPressed();
         }
-
     }
+
+
+    private void Fragment_Transaction(Fragment fragment, String tag, boolean lisaabackStakkiin, String viesti){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment, tag);
+
+        if(lisaabackStakkiin == true){
+            transaction.addToBackStack(tag);
+        }
+        transaction.commit();
+    }
+
+
+
 }

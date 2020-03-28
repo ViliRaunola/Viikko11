@@ -5,10 +5,16 @@
     android:background="#6377E4">
 
     <TextView
+        android:id="@+id/text_view_in_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Text"
+        android:padding="3sp"
+        android:text="Text worth of 50 words kjxghö zlkjhgpa aoihg
+        nkajf oiht nagh öahg  oign whf  o nb  ekr  ofhn ö wkb rw,  kwje we
+         kr wu  kj wkrj w rkejwrökwjhrw wkjrhw kjhcw.
+         jn öw hörh wkwjn rwo oh rewn kwöj jkh weömn wöh rwkj wkj npo
+         hiosaöa gopairg h öorahg ajkgj g."
         android:textColor="#fff"
-        android:textSize="40sp" />
+        android:textSize="20sp">text</TextView>
 </RelativeLayout>

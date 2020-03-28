@@ -1,18 +1,39 @@
 package com.example.viikko11;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class Settings extends Fragment {
+
+    private EditText teksti;
+    private Button nappi;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.settings, container, false);
+        View view = inflater.inflate(R.layout.settings, container, false);
+
+        teksti = view.findViewById(R.id.fontti);
+        nappi = view.findViewById(R.id.nappi_ok);
+        nappi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharSequence inputti = teksti.getText();
+
+            }
+        });
+
+        return view;
     }
+
 }
