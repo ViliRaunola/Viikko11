@@ -25,16 +25,18 @@ public class Settings extends Fragment {
     private Spinner spinner_varit;
     private Switch switch_caps;
     private Switch switch_bold;
+    private Switch switch_muokkaus;
     private String vari;
     private boolean caps;
     private boolean bold;
+    private boolean muokkaus;
 
 
     Settings_Send_Listener settings_send_listener;
 
     public interface Settings_Send_Listener{
 
-        public void Settings_Send(String viesti, int koko_fontti, String vari, boolean allcaps, boolean bold);
+        public void Settings_Send(String viesti, int koko_fontti, String vari, boolean allcaps, boolean bold, boolean muokkaus);
     }
 
 
@@ -47,6 +49,14 @@ public class Settings extends Fragment {
         nappi = view.findViewById(R.id.send);
         editText = view.findViewById(R.id.settings_editText);
         fonttikoko = view.findViewById(R.id.settings_fonttiKoko);
+
+        switch_muokkaus = view.findViewById(R.id.settings_lupa);
+        switch_muokkaus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                muokkaus = isChecked;
+            }
+        });
 
         switch_bold = view.findViewById(R.id.settings_bold);
         switch_bold.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -97,7 +107,7 @@ public class Settings extends Fragment {
                     e.printStackTrace();
                 }
 
-                settings_send_listener.Settings_Send(viesti, koko_fontti, vari, caps, bold);
+                settings_send_listener.Settings_Send(viesti, koko_fontti, vari, caps, bold, muokkaus);
             }
         });
         return view;
@@ -120,6 +130,5 @@ public class Settings extends Fragment {
     public void onResume() {
         super.onResume();
         editText.setText("");
-        fonttikoko.setText("");
     }
 }

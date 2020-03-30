@@ -8,9 +8,23 @@
         android:id="@+id/text_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="412dp"
         android:text="Text"
         android:textColor="#fff"
-        android:textSize="40sp"
-        />
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/text_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="316dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
 </RelativeLayout>

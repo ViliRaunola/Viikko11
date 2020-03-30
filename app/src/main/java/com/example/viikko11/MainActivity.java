@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
 
     private Toolbar ylapalkki;
+    Text text = new Text();
+    Settings settings = new Settings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(togglaus);
         togglaus.syncState();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Text()).commit(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, text).commit(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
         navigationView.setCheckedItem(R.id.nav_text);
     }
 
@@ -43,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Settings()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, settings).commit();
                 break;
             case R.id.nav_text:
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Text()).commit();
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, text).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -64,18 +66,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void Settings_Send(String viesti, int koko_fontti, String vari, boolean caps, boolean bold) {
+    public void Settings_Send(String viesti, int koko_fontti, String vari, boolean caps, boolean bold, boolean muokkaus) {
 
-        Text text = new Text();
+
         Bundle bundle = new Bundle();
         bundle.putString("message", viesti);
         bundle.putString("vari", vari);
         bundle.putInt("koko", koko_fontti);
         bundle.putBoolean("caps", caps);
         bundle.putBoolean("bold", bold);
+        bundle.putBoolean("muokkaus", muokkaus);
         text.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, text, null);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.nav_text);
     }
 }
