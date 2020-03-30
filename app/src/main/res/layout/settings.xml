@@ -2,13 +2,95 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F0F10">
+    android:background="#090909">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="611dp"
         android:text="Settings"
         android:textColor="#fff"
         android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="157dp"
+        android:layout_marginBottom="551dp"
+        android:text="Aseta" />
+
+    <EditText
+        android:id="@+id/settings_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="489dp"
+        android:ems="10"
+        android:hint="Anna tekstiä"
+        android:inputType="textPersonName"
+        android:textColor="#CDDC39"
+        android:textColorHint="#CDDC39" />
+
+    <EditText
+        android:id="@+id/settings_fonttiKoko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="432dp"
+        android:ems="10"
+        android:hint="Anna fontin koko"
+        android:inputType="textPersonName"
+        android:textColor="#CDDC39"
+        android:textColorHint="#CDDC39" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="231dp"
+        android:layout_height="67dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="217dp"
+        android:background="#F44336"
+        android:backgroundTint="#4CAF50"
+        android:foregroundTint="#F44336" />
+
+    <Switch
+        android:id="@+id/settings_allcaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="372dp"
+        android:backgroundTint="#4CAF50"
+        android:foregroundTint="#4CAF50"
+        android:shadowColor="#4CAF50"
+        android:text="Allcaps"
+        android:textColor="#CDDC39" />
+
+    <Switch
+        android:id="@+id/settings_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="326dp"
+        android:backgroundTint="#4CAF50"
+        android:foregroundTint="#4CAF50"
+        android:shadowColor="#4CAF50"
+        android:text="Bold"
+        android:textColor="#CDDC39" />
+
 </RelativeLayout>

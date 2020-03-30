@@ -5,10 +5,12 @@
     android:background="#6377E4">
 
     <TextView
+        android:id="@+id/text_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Text"
         android:textColor="#fff"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        />
 </RelativeLayout>

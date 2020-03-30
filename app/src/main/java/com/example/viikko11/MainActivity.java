@@ -1,6 +1,7 @@
 package com.example.viikko11;
 
 import android.os.Bundle;
+import android.view.Display;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -9,10 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Settings.Settings_Send_Listener {
     private DrawerLayout drawer;
 
     private Toolbar ylapalkki;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(togglaus);
         togglaus.syncState();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Text()).commit(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Text()).commit(); //Jotta sovelluksen käynnistyksessä saataisiin auki heti tämä seivu
         navigationView.setCheckedItem(R.id.nav_text);
     }
 
@@ -41,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Settings()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Settings()).commit();
                 break;
             case R.id.nav_text:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Text()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Text()).commit();
 
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -59,5 +61,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
 
+    }
+
+    @Override
+    public void Settings_Send(String viesti, int koko_fontti, String vari, boolean caps, boolean bold) {
+
+        Text text = new Text();
+        Bundle bundle = new Bundle();
+        bundle.putString("message", viesti);
+        bundle.putString("vari", vari);
+        bundle.putInt("koko", koko_fontti);
+        bundle.putBoolean("caps", caps);
+        bundle.putBoolean("bold", bold);
+        text.setArguments(bundle);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, text, null);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

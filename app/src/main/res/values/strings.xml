@@ -3,4 +3,10 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string-array name="varit">
+        <item>valkea</item>
+        <item>musta</item>
+        <item>keltainen</item>
+        <item>vihreä</item>
+    </string-array>
 </resources>
