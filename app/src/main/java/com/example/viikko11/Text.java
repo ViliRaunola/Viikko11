@@ -54,18 +54,18 @@ public class Text extends Fragment {
             if(!message.equals("")){
                 textView.setText(message);
             }
-            String vari = bundle.getString("vari");
-            if(!vari.equals("")){
-                if(vari.equals("musta")) {
-                    textView.setTextColor(Color.BLACK);
-                }else if(vari.equals("keltainen")){
-                    textView.setTextColor(Color.YELLOW);
-                }else if(vari.equals("vihreä")){
-                    textView.setTextColor(Color.GREEN);
-                }else if(vari.equals("valkea")){
-                    textView.setTextColor(Color.WHITE);
-                }
+            int vari = bundle.getInt("vari");
+
+            if(vari == 1) {
+                textView.setTextColor(Color.BLACK);
+            }else if(vari == 2){
+                textView.setTextColor(Color.YELLOW);
+            }else if(vari == 3){
+                textView.setTextColor(Color.GREEN);
+            }else if(vari == 0){
+                textView.setTextColor(Color.WHITE);
             }
+
 
             int koko = bundle.getInt("koko");
             textView.setTextSize(koko);
@@ -83,7 +83,10 @@ public class Text extends Fragment {
             if(muokkaus == true){
                 editText.setFocusable(true);
             }else{
-                textView.setText(teksti);
+                String temp = teksti;
+                if(!temp.trim().equals("")){
+                    textView.setText(teksti);
+                }
                 editText.setFocusable(false);
             }
 

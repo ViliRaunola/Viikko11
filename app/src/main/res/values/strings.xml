@@ -1,12 +1,36 @@
 <resources>
-    <string name="app_name">Viikko11</string>
+    <string name="app_name">Week11</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+
+    <string name="settings">Settings</string>
+    <string name="nappi_aseta">Apply</string>
+    <string name="hint_teksti">Give some text</string>
+    <string name="hint_koko">Give font size</string>
+    <string name="caps">Caps</string>
+    <string name="bold">Bold</string>
+    <string name="salli">Allow editing</string>
+    <string name="settings_kieli_nappula">Change Language</string>
+
+
+    <string name="valikko_teksti">Text</string>
+    <string name="valikko_asetukset">Settings</string>
+    <string name="ylapalkki">Week 11</string>
+
     <string-array name="varit">
-        <item>valkea</item>
-        <item>musta</item>
-        <item>keltainen</item>
-        <item>vihreä</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Yellow</item>
+        <item>Green</item>
+    </string-array>
+
+
+    <string-array name="kielet">
+        <item>Finnish</item>
+        <item>Swedish</item>
+        <item>English</item>
     </string-array>
 </resources>
