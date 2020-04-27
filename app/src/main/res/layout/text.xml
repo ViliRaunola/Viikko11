@@ -6,13 +6,17 @@
 
     <TextView
         android:id="@+id/text_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="326dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="412dp"
-        android:text="Text"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="403dp"
+        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor. Aenean m"
         android:textColor="#fff"
         android:textSize="40sp" />
 

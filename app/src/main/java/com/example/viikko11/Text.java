@@ -50,10 +50,7 @@ public class Text extends Fragment {
         });
 
         try {
-            String message = bundle.getString("message");
-            if(!message.equals("")){
-                textView.setText(message);
-            }
+
             int vari = bundle.getInt("vari");
 
             if(vari == 1) {
@@ -88,6 +85,12 @@ public class Text extends Fragment {
                     textView.setText(teksti);
                 }
                 editText.setFocusable(false);
+                }
+
+            String message = bundle.getString("message");
+            if(!message.equals("")){
+
+                textView.setText(message);
             }
 
 
